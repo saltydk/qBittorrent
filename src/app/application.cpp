@@ -923,6 +923,7 @@ int Application::exec()
                         + tr("The WebUI administrator password was not set. A temporary password is provided for this session: %1").arg(tempPassword) + u'\n'
                         + tr("You should set your own password in program preferences.") + u'\n';
                 printf("%s", qUtf8Printable(warning));
+                fflush(stdout); // Necessary for environments (e.g. docker) where stdout is buffered
             }
         }
         else
